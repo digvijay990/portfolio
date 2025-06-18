@@ -2,225 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digvijay | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #1f1f1f;
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    header h1 {
-      color: #ffffff;
-      font-size: 28px;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin-top: 10px;
-    }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #ccc;
-      font-weight: 300;
-      transition: color 0.3s ease;
-      cursor: pointer;
-    }
-
-    nav ul li a:hover,
-    nav ul li a.active {
-      color: #00bcd4;
-    }
-
-    .section {
-      display: none;
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .section.active {
-      display: block;
-    }
-
-    h2 {
-      font-size: 26px;
-      color: #333;
-      text-align: center;
-      margin-bottom: 30px;
-      position: relative;
-    }
-
-    h2::after {
-      content: '';
-      width: 60px;
-      height: 3px;
-      background: #00bcd4;
-      display: block;
-      margin: 10px auto 0;
-      border-radius: 5px;
-    }
-
-    .projects, .skills {
-      display: grid;
-      gap: 20px;
-    }
-
-    .project-box, .skill {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .skill-bar {
-      height: 10px;
-      background: #ddd;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 10px;
-      background: #00bcd4;
-      width: var(--fill);
-    }
-
-    .photo-container {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .photo-container img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #00bcd4;
-    }
-
-    .intro-box {
-      max-width: 500px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 15px 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: #1f1f1f;
-      color: #ccc;
-      margin-top: 40px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digvijay R. Borse | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Digvijay.R.Borse</h1>
+  <header class="hero">
     <nav>
       <ul>
-        <li><a onclick="showSection('about')">About</a></li>
-        <li><a onclick="showSection('projects')">Projects</a></li>
-        <li><a onclick="showSection('skills')">Skills</a></li>
-        <li><a onclick="showSection('contact')">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="hero-content">
+      <img src="photo.jpg" alt="Digvijay R. Borse" class="profile-pic" />
+      <h1>Digvijay R. Borse</h1>
+      <p>CS Student | Machine Learning Explorer | Data Science | Power BI</p>
+    </div>
   </header>
 
-  <div class="photo-container">
-    <img src="photo.jpg" alt="Profile Photo">
-  </div>
-  <div class="intro-box">
-    <p>Hi! I'm Digvijay — a curious Computer Science student who loves building projects in ML, Data Analytics, and Full-Stack Web Dev.</p>
-  </div>
-
-  <section id="about" class="section active">
+  <section id="about">
     <h2>About Me</h2>
-    <p>I’m currently pursuing a B.Tech in Computer Science. I enjoy working on projects involving machine learning, data visualization, and web development. Proficient in Python, Power BI, and React.js. Curious to explore cloud computing and AI-based solutions.</p>
+    <p>I’m a computer science student passionate about machine learning, data analysis, and front-end web development. I love solving real-world problems and building impactful digital products.</p>
   </section>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-box">
-        <h3>Blood Group Detection via Fingerprint</h3>
-        <p>Deep learning model using CNN and OpenCV for predicting blood groups.</p>
-      </div>
-      <div class="project-box">
-        <h3>Real Estate Price Prediction</h3>
-        <p>Used ML models like XGBoost to forecast prices based on property features.</p>
-      </div>
-      <div class="project-box">
-        <h3>Olympics Data Dashboard</h3>
-        <p>Power BI interactive dashboard to analyze historical Olympics performance.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="section">
+  <section id="skills">
     <h2>Skills</h2>
-    <div class="skills">
-      <div class="skill">
-        <strong>Python</strong>
-        <div class="skill-bar"><div class="skill-bar-fill" style="--fill: 90%"></div></div>
-      </div>
-      <div class="skill">
-        <strong>Machine Learning</strong>
-        <div class="skill-bar"><div class="skill-bar-fill" style="--fill: 85%"></div></div>
-      </div>
-      <div class="skill">
-        <strong>Power BI</strong>
-        <div class="skill-bar"><div class="skill-bar-fill" style="--fill: 80%"></div></div>
-      </div>
+    <ul class="skills-list">
+      <li>Python</li>
+      <li>Machine Learning</li>
+      <li>Power BI</li>
+      <li>HTML/CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>House Price Prediction</h3>
+      <p>ML model using XGBoost and real estate dataset to forecast house prices based on multiple factors.</p>
+    </div>
+    <div class="project-card">
+      <h3>Fingerprint Blood Group Detector</h3>
+      <p>Deep learning model to predict blood group based on fingerprint features. Implemented using CNNs.</p>
     </div>
   </section>
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email: digvijay@example.com</p>
-    <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/digvijay</a></p>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <ul class="contact-links">
+      <li><a href="mailto:youremail@example.com">Email</a></li>
+      <li><a href="https://github.com/digvijay990">GitHub</a></li>
+      <li><a href="https://linkedin.com">LinkedIn</a></li>
+    </ul>
   </section>
 
   <footer>
-    <p>&copy; 2025 Digvijay</p>
+    <p>&copy; 2025 Digvijay R. Borse. All rights reserved.</p>
   </footer>
 
-  <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
-
-      const navLinks = document.querySelectorAll('nav a');
-      navLinks.forEach(link => link.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
