@@ -1,118 +1,90 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #090979, #00d4ff);
-  color: #fff;
-  scroll-behavior: smooth;
-}
+// script.js
 
-nav {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
-}
+// Scroll reveal animation
+const sections = document.querySelectorAll("section");
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, {
+  threshold: 0.1
+});
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
+sections.forEach(section => {
+  section.classList.add("hidden");
+  observer.observe(section);
+});
 
-nav a:hover {
-  color: #00ffcc;
-}
+// CSS for reveal effect will be added via JavaScript classes
+const style = document.createElement('style');
+style.innerHTML = `
+  .hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: rgba(0,0,0,0.2);
-  padding-top: 5rem;
-}
+  body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #00ffcc;
-  margin-bottom: 1rem;
-}
+  .profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #00ffcc;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.6), 0 0 50px rgba(0, 255, 255, 0.4);
+    transition: transform 0.3s ease-in-out;
+  }
 
-h1, h2 {
-  margin: 0.5rem 0;
-}
+  .profile-pic:hover {
+    transform: scale(1.08) rotate(3deg);
+  }
 
-section {
-  padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  margin: 2rem 0;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    border-radius: 20px;
+    background: radial-gradient(circle, rgba(0,255,255,0.2), rgba(0,0,0,0));
+    box-shadow: 0 0 50px rgba(0,255,204,0.2), 0 0 80px rgba(0,255,255,0.1);
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-size: cover;
+  }
+`;
+document.head.appendChild(style);
 
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
+// Add click listener to Python skill for redirection
+const skills = document.querySelectorAll(".skills-list li");
+skills.forEach(skill => {
+  if (skill.textContent.trim() === "Python") {
+    skill.style.cursor = "pointer";
+    skill.addEventListener("click", () => {
+      window.open("https://github.com/digvijay990/python-projects", "_blank");
+    });
+  }
+});
 
-.skills-list li {
-  background: #00ffcc;
-  color: #000;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  list-style: none;
-  font-weight: bold;
-}
-
-.project-card {
-  background: rgba(0,0,0,0.3);
-  padding: 1rem;
-  margin: 1rem 0;
-  border-left: 5px solid #00ffcc;
-  border-radius: 10px;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.contact-links a {
-  color: #00ffcc;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s;
-}
-
-.contact-links a:hover {
-  transform: scale(1.1);
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.5);
+// Add About Section content dynamically
+const aboutSection = document.querySelector("#about p");
+if (aboutSection) {
+  aboutSection.innerHTML = `
+    Hi! I'm Digvijay — a curious Computer Science student who loves building projects in ML, Data Analytics, and Full-Stack Web Dev.<br><br>
+    I’m currently pursuing a B.Tech in Computer Science. I enjoy working on projects involving machine learning, data visualization, and web development. Proficient in Python, Power BI, and React.js. Curious to explore cloud computing and AI-based solutions.
+  `;
 }
