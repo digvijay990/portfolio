@@ -2,245 +2,348 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Digvijay R. Borse | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
       color: #fff;
-      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    header {
-      padding: 4rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      animation: fadeIn 2s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #00f2ff;
-      box-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    h1 {
-      margin-top: 1rem;
-      font-size: 3rem;
-      font-family: 'Orbitron', sans-serif;
-      color: #00f2ff;
-    }
-    .typing-text {
-      color: #aaa;
-      font-size: 1.2rem;
-      overflow: hidden;
-      border-right: .15em solid #00f2ff;
-      white-space: nowrap;
-      margin: 0 auto;
-      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #00f2ff; }
-    }
+
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0 4rem;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: #00f2ff;
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      display: block;
-      height: 2px;
-      width: 0;
-      background: #00f2ff;
-      transition: width 0.3s;
-    }
-    nav a:hover::after {
+      position: fixed;
+      top: 0;
       width: 100%;
-    }
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 1000px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      color: #00f2ff;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-    }
-    .services, .stats, .projects {
+      background: #0e0e0e;
+      padding: 1rem 2rem;
+      z-index: 1000;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
       justify-content: center;
+      align-items: center;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1.2rem 1.5rem;
-      border: 1px solid #444;
-      border-radius: 12px;
-      min-width: 200px;
-      flex: 1 1 200px;
+
+    .nav-center ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-center ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-center ul li a:hover {
+      color: #00f6ff;
+    }
+
+    #hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      position: relative;
+      overflow: hidden;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .hero-left, .hero-right {
+      flex: 1;
+    }
+
+    .hero-left {
+      text-align: right;
+      padding-right: 2rem;
+    }
+
+    .hero-left h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-left h3 {
+      color: #00f6ff;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-left p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .hero-img {
+      flex: 0 0 auto;
       text-align: center;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s;
     }
-    .card:hover {
-      transform: scale(1.05);
-      border-color: #00f2ff;
-      box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+
+    .hero-img img {
+      height: 700px;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
     }
-    .quote {
-      font-style: italic;
-      color: #ccc;
-      text-align: center;
+
+
+    .hero-right {
+      text-align: left;
+      padding-left: 2rem;
+    }
+
+    .hero-right h1 {
+      font-size: 3rem;
+    }
+
+    .hero-right code {
+      font-size: 0.9rem;
+      color: #aaa;
+      display: block;
       margin-top: 2rem;
+      line-height: 1.4;
     }
+
+    #animatedText {
+      color: #00f6ff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      height: 2rem;
+      border-right: 2px solid #00f6ff;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #00f6ff; }
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00f6ff;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .card div {
+      padding: 1rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #00f6ff;
+      text-decoration: none;
+    }
+
     footer {
       text-align: center;
       padding: 2rem;
+      font-size: 0.9rem;
       background: #111;
-      border-top: 1px solid #222;
-      color: #888;
+      color: #aaa;
     }
-    a.button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background: #00f2ff;
-      color: #000;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
+
+    ul.skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.skills-list li {
+      background: #1c1c1c;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      color: #00f6ff;
+      font-weight: 500;
+    }
+
+    @media screen and (max-width: 768px) {
+      #hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 6rem;
+      }
+      .hero-left, .hero-right {
+        text-align: center;
+        padding: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="photo1.jpeg" alt="Digvijay R. Borse" class="profile-img" />
-    <h1>Digvijay R. Borse</h1>
-    <p class="typing-text">Computer Science Engineer | Machine Learning Developer | Data Analyst | Researcher (ML/AI)</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Expertise</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+
+  <nav>
+    <div class="nav-center">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-left">
+      <h1>Digvijay R. Borse</h1>
+      <h3>Computer Science Engineer</h3>
+      <p>Machine Learning Developer | Python Coder | Data Analyst | Researcher (ML/AI)</p>
+      <p id="animatedText"></p>
+    </div>
+
+    <div class="hero-img">
+      <img src="photo3.png" alt="Digvijay R. Borse">
+    </div>
+
+   
+        
+      </code>
+    </div>
+  </section>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Motivated and detail-oriented Computer Science student with strong skills in Python, SQL, machine learning,
-      and data visualization using Power BI. Authored research papers focused on house price prediction using ML models
-      and medical data analysis using machine learning techniques. Proficient in supervised learning algorithms, feature
-      engineering, and data preprocessing. Passionate about applying data science to solve real-world problems and
-      contribute to impactful, data-driven projects.
-    </p>
+    <p>Motivated and detail-oriented Computer Science student with strong skills in Python, SQL, machine learning, and data visualization using Power BI. Authored research papers focused on house price prediction using ML models and medical data analysis using machine learning techniques. Proficient in supervised learning algorithms, feature engineering, and data preprocessing. Passionate about applying data science to solve real-world problems and contribute to impactful, data-driven projects.</p>
   </section>
 
-  <section id="services">
-    <h2>What I Do</h2>
-    <div class="services">
-      <div class="card">Python Developer</div>
-      <div class="card">Machine Learning Developer</div>
-      <div class="card">Researcher (ML/AI)</div>
-      <div class="card">Data Analyst</div>
-    </div>
-  </section>
-
-  <section class="stats">
-    <h2>Stats</h2>
-    <div class="services">
-      <div class="card"><strong>4 Years</strong><br />Academic Experience</div>
-      <div class="card"><strong>4–5</strong><br />Projects Completed</div>
-      <div class="card"><strong>Key Tools</strong><br />Python, SQL, Power BI, Machine Learning</div>
-    </div>
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Python</li>
+      <li>Machine Learning</li>
+      <li>Power BI</li>
+      <li>Data Analysis</li>
+      <li>SQL</li>
+      <li>HTML/CSS</li>
+      <li>JavaScript</li>
+      <li>Git/GitHub</li>
+    </ul>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
       <div class="card">
-        <strong>Python Projects</strong>
-        <p>Collection of practice and learning-based Python programs.</p>
-        <a class="button" href="https://github.com/digvijay990/python_projects" target="_blank">View on GitHub</a>
+        <img src="python.png" alt="Python Projects">
+        <div>
+          <strong>Python Projects</strong>
+          <p>Practice & foundational Python programs.</p>
+          <a class="button" href="https://github.com/digvijay990/python_projects" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="blood.png" alt="Blood Group Detection">
+        <div>
+          <strong>Blood Group Detection</strong>
+          <p>CNN model predicting blood group from fingerprint images.</p>
+          <a class="button" href="#" target="_blank">Coming Soon</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="house.png" alt="House Price Prediction">
+        <div>
+          <strong>House Price Prediction</strong>
+          <p>XGBoost regression model on real estate dataset.</p>
+          <a class="button" href="#" target="_blank">Coming Soon</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="quote">
-    <p>“Passionate about data-driven impact through clean code and smart algorithms.”</p>
-  </section>
-
   <section id="contact">
     <h2>Contact</h2>
-    <p style="text-align: center;">
-      📧 digvijay.borse22@pccoepune.org <br />
-      🔗 <a href="https://github.com/digvijay990" target="_blank">GitHub</a> | 
-      <a href="https://www.linkedin.com/in/digvijay-borse-41481b259?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B2qx%2FCYBnQfyPkAgKhpHzgA%3D%3D" target="_blank">LinkedIn</a>
-    </p>
+    <p>Email: <a href="digvijay.borse22@pccoepune.org" class="button">youremail@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/digvijay990" class="button" target="_blank">digvijay990</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/digvijay-borse-41481b259?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B2qx%2FCYBnQfyPkAgKhpHzgA%3D%3D" class="button" target="_blank">LinkedIn Profile</a></p>
   </section>
 
   <footer>
-    &copy; 2025 Digvijay R. Borse — All Rights Reserved
+    &copy; 2025 Digvijay R. Borse. All rights reserved.
   </footer>
 
   <script>
-    if (!window._digvijayObserverInitialized) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
+    const titles = [
+      "Machine Learning Developer",
+      "Python Coder",
+      "Data Analyst",
+      "Researcher (ML/AI)",
+      "Tech Explorer"
+    ];
 
-      document.querySelectorAll("section").forEach(section => {
-        observer.observe(section);
-      });
+    let i = 0;
+    let j = 0;
+    let currentTitle = '';
+    let isDeleting = false;
+    const typingDiv = document.getElementById('animatedText');
 
-      window._digvijayObserverInitialized = true;
+    function typeEffect() {
+      if (i >= titles.length) i = 0;
+      currentTitle = titles[i];
+      
+      if (isDeleting) {
+        typingDiv.textContent = currentTitle.substring(0, j--);
+        if (j < 0) {
+          isDeleting = false;
+          i++;
+        }
+      } else {
+        typingDiv.textContent = currentTitle.substring(0, j++);
+        if (j > currentTitle.length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1000);
+          return;
+        }
+      }
+      setTimeout(typeEffect, isDeleting ? 50 : 100);
     }
+
+    window.onload = typeEffect;
   </script>
+
 </body>
 </html>
