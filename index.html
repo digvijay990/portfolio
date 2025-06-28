@@ -4,66 +4,243 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digvijay R. Borse | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00f2ff;
+      box-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    h1 {
+      margin-top: 1rem;
+      font-size: 3rem;
+      font-family: 'Orbitron', sans-serif;
+      color: #00f2ff;
+    }
+    .typing-text {
+      color: #aaa;
+      font-size: 1.2rem;
+      overflow: hidden;
+      border-right: .15em solid #00f2ff;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #00f2ff; }
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0 4rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #00f2ff;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: #00f2ff;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: #00f2ff;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    .services, .stats, .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #444;
+      border-radius: 12px;
+      min-width: 200px;
+      flex: 1 1 200px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      border-color: #00f2ff;
+      box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+    }
+    .quote {
+      font-style: italic;
+      color: #ccc;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      border-top: 1px solid #222;
+      color: #888;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #00f2ff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
+  <header>
+    <img src="your-photo.jpg" alt="Digvijay R. Borse" class="profile-img" />
+    <h1>Digvijay R. Borse</h1>
+    <p class="typing-text">Computer Science Engineer | Machine Learning Developer | Data Analyst | Researcher (ML/AI)</p>
     <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <a href="#about">About</a>
+      <a href="#services">Expertise</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <div class="hero-content">
-      <img src="photo.jpg" alt="Digvijay R. Borse" class="profile-pic" />
-      <h1>Digvijay R. Borse</h1>
-      <p>CS Student | Machine Learning Explorer | Data Science | Power BI</p>
-    </div>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m a computer science student passionate about machine learning, data analysis, and front-end web development. I love solving real-world problems and building impactful digital products.</p>
+    <p>
+      Motivated and detail-oriented Computer Science student with strong skills in Python, SQL, machine learning,
+      and data visualization using Power BI. Authored research papers focused on house price prediction using ML models
+      and medical data analysis using machine learning techniques. Proficient in supervised learning algorithms, feature
+      engineering, and data preprocessing. Passionate about applying data science to solve real-world problems and
+      contribute to impactful, data-driven projects.
+    </p>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Python</li>
-      <li>Machine Learning</li>
-      <li>Power BI</li>
-      <li>HTML/CSS</li>
-      <li>JavaScript</li>
-    </ul>
+  <section id="services">
+    <h2>What I Do</h2>
+    <div class="services">
+      <div class="card">Python Developer</div>
+      <div class="card">Machine Learning Developer</div>
+      <div class="card">Researcher (ML/AI)</div>
+      <div class="card">Data Analyst</div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <h2>Stats</h2>
+    <div class="services">
+      <div class="card"><strong>4 Years</strong><br />Academic Experience</div>
+      <div class="card"><strong>4–5</strong><br />Projects Completed</div>
+      <div class="card"><strong>Key Tools</strong><br />Python, SQL, Power BI, Machine Learning</div>
+    </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project-card">
-      <h3>House Price Prediction</h3>
-      <p>ML model using XGBoost and real estate dataset to forecast house prices based on multiple factors.</p>
+    <div class="projects">
+      <div class="card">
+        <strong>Python Projects</strong>
+        <p>Collection of practice and learning-based Python programs.</p>
+        <a class="button" href="https://github.com/digvijay990/python_projects" target="_blank">View on GitHub</a>
+      </div>
     </div>
-    <div class="project-card">
-      <h3>Fingerprint Blood Group Detector</h3>
-      <p>Deep learning model to predict blood group based on fingerprint features. Implemented using CNNs.</p>
-    </div>
+  </section>
+
+  <section class="quote">
+    <p>“Passionate about data-driven impact through clean code and smart algorithms.”</p>
   </section>
 
   <section id="contact">
-    <h2>Contact Me</h2>
-    <ul class="contact-links">
-      <li><a href="mailto:youremail@example.com">Email</a></li>
-      <li><a href="https://github.com/digvijay990">GitHub</a></li>
-      <li><a href="https://linkedin.com">LinkedIn</a></li>
-    </ul>
+    <h2>Contact</h2>
+    <p style="text-align: center;">
+      📧 youremail@example.com <br />
+      🔗 <a href="https://github.com/digvijay990" target="_blank">GitHub</a> | 
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    </p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Digvijay R. Borse. All rights reserved.</p>
+    &copy; 2025 Digvijay R. Borse — All Rights Reserved
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    if (!window._digvijayObserverInitialized) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll("section").forEach(section => {
+        observer.observe(section);
+      });
+
+      window._digvijayObserverInitialized = true;
+    }
+  </script>
 </body>
 </html>
