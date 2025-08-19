@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,224 +8,462 @@
   <title>Digvijay R. Borse | Portfolio</title>
 
   <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* ---------- Reset & Base ---------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0f0f0f;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(0,0,0,0.85);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      color: #f5f5f5;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #00bcd4;
-    }
-
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 90vh;
-      padding: 2rem 5%;
-    }
-
-    .hero-text {
-      max-width: 600px;
-    }
-
-    .hero-text h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #00bcd4;
+      background: #0e0e0e; /* your color scheme */
       color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
+    a { color: inherit; text-decoration: none; }
+    section { padding: 4rem 1.5rem; max-width: 1200px; margin: 0 auto; }
 
-    .btn:hover {
-      background: #0097a7;
+    /* ---------- NAV ---------- */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 64px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index: 1200;
+      background: rgba(14,14,14,0.35);
+      backdrop-filter: blur(6px);
+      transition: background 300ms ease, box-shadow 300ms ease;
+      padding: 0 2rem;
     }
-
-    section {
-      padding: 4rem 5%;
+    nav.scrolled {
+      background: rgba(14,14,14,0.95);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6);
     }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
+    .nav-center {
+      width:100%;
+      max-width:1100px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
     }
-
-    .projects-grid,
-    .cert-grid,
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+    .brand {
+      font-weight:700;
+      letter-spacing:0.4px;
+      color:#fff;
     }
-
-    .project-card,
-    .cert-item,
-    .dashboard-item {
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      transition: transform 0.3s;
-      text-align: center;
+    .nav-center ul {
+      display:flex;
+      gap:1.6rem;
+      list-style:none;
+      align-items:center;
     }
-
-    .project-card:hover,
-    .cert-item:hover,
-    .dashboard-item:hover {
-      transform: translateY(-5px);
+    .nav-center ul li a {
+      color:#ddd;
+      font-weight:600;
+      padding:6px 8px;
+      border-radius:6px;
+      transition: color .2s, background .2s;
     }
+    .nav-center ul li a:hover { color:#00f6ff; background: rgba(0,246,255,0.04); }
 
-    .project-card img,
-    .cert-item img,
-    .dashboard-item img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+    /* ---------- HERO ---------- */
+    #hero {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      padding-top:64px; /* for fixed nav */
+      position:relative;
+      overflow:hidden;
+      background: linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
     }
-
-    footer {
-      text-align: center;
+    .hero-inner {
+      display:flex;
+      gap:2rem;
+      align-items:center;
+      width:100%;
+      max-width:1200px;
       padding: 2rem;
-      background: #111;
-      margin-top: 2rem;
     }
 
-    footer p {
-      font-size: 0.9rem;
-      color: #aaa;
+    /* left text */
+    .hero-left { flex:1; text-align:right; padding-right:2rem; }
+    .hero-left h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom:0.4rem; }
+    .hero-left h3 { color:#00f6ff; margin-bottom:1rem; font-weight:600; }
+    .hero-left p { color:#d5d5d5; max-width:44rem; line-height:1.6; }
+
+    /* animated tags below */
+    #animatedText {
+      color:#00f6ff;
+      font-weight:700;
+      margin-top:1rem;
+      font-size:1.05rem;
+      height:1.8rem;
+      border-right:2px solid #00f6ff;
+      white-space:nowrap;
+      overflow:hidden;
+      animation: blink 1s infinite;
+      display:inline-block;
+    }
+    @keyframes blink { 0%,100%{ border-color: transparent } 50%{ border-color: #00f6ff } }
+
+    /* hero image column */
+    .hero-img { flex:0 0 420px; display:flex; align-items:center; justify-content:center; }
+    .hero-img img {
+      width:auto;
+      max-width:100%;
+      max-height:72vh;
+      object-fit:contain;
+      border-radius:10px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    }
+
+    /* resume button */
+    .cta-row { margin-top:1.25rem; display:flex; gap:1rem; justify-content:flex-end; }
+    .btn {
+      display:inline-block;
+      padding:0.6rem 1rem;
+      border-radius:8px;
+      font-weight:600;
+      cursor:pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .btn-primary {
+      background:#00f6ff;
+      color:#000;
+      box-shadow: 0 8px 30px rgba(0,246,255,0.08);
+    }
+    .btn-outline {
+      border:1px solid rgba(255,255,255,0.06);
+      color:#fff;
+      background:transparent;
+    }
+    .btn-primary:hover { transform: translateY(-3px); }
+    .btn-outline:hover { transform:translateY(-3px); border-color:#00f6ff; color:#00f6ff; }
+
+    /* ---------- SECTIONS ---------- */
+    h2 { font-size:2rem; color:#00f6ff; text-align:left; margin-bottom:1.2rem; }
+    .section-sub { color:#cfcfcf; margin-bottom:1rem; }
+
+    /* About */
+    #about p { color:#d3d3d3; line-height:1.7; max-width:920px; margin:auto; text-align:left; }
+
+    /* Skills */
+    ul.skills-list {
+      display:flex;
+      gap:.8rem;
+      flex-wrap:wrap;
+      list-style:none;
+      padding-left:0;
+    }
+    ul.skills-list li {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:8px;
+      padding:0.45rem 0.9rem;
+      color:#00f6ff;
+      font-weight:600;
+      border: 1px solid rgba(0,246,255,0.06);
+      transition: transform .15s, box-shadow .15s;
+    }
+    ul.skills-list li:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,246,255,0.06); color:#000; background:#00f6ff; }
+
+    /* Highlights (small stat cards) */
+    .highlights { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem; }
+    .stat {
+      background:#0f0f0f;
+      border-radius:10px;
+      padding:1rem 1.2rem;
+      min-width:150px;
+      text-align:center;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .stat strong { display:block; color:#00f6ff; font-size:1.4rem; }
+
+    /* Experience / Card */
+    .experience .card {
+      background: #1c1c1c;
+      border-radius:12px;
+      padding:1.2rem;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .experience .meta { color:#cfcfcf; font-size:.95rem; margin-top:.5rem; }
+
+    /* Projects — kept from original, tuned slightly */
+    .projects {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap:1.25rem;
+    }
+    .project-card {
+      background:#1c1c1c;
+      border-radius:10px;
+      overflow:hidden;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.6); }
+    .project-card img { width:100%; display:block; }
+    .project-body { padding:1rem; color:#dcdcdc; }
+
+    /* Contact */
+    .contact-grid { display:flex; gap:2rem; flex-wrap:wrap; align-items:center; justify-content:center; }
+    .contact-card {
+      background:#111111; border-radius:10px; padding:1rem 1.2rem; text-align:center; min-width:220px;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .contact-card a { display:block; margin-top:0.5rem; color:#00f6ff; font-weight:600; }
+
+    /* Footer */
+    footer { padding:2rem 1rem; text-align:center; color:#aaa; margin-top:2rem; border-top: 1px solid rgba(255,255,255,0.02); }
+
+    /* ---------- Animations / Responsive ---------- */
+    .fade-in { opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.show { opacity:1; transform:none; }
+
+    @media (max-width: 880px) {
+      .hero-inner { flex-direction:column-reverse; text-align:center; gap:1.2rem; }
+      .hero-left { text-align:center; padding-right:0; }
+      .hero-img { flex: 0 0 auto; max-width:380px; }
+      .cta-row { justify-content:center; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 0 1rem; }
+      .nav-center ul { gap:1rem; font-size:.95rem; }
+      h2 { font-size:1.6rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Digvijay R. Borse</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#dashboards">Dashboards</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero" id="about">
-    <div class="hero-text">
-      <h2>Hi, I'm Digvijay 👋</h2>
-      <p>Computer Science Engineer | Machine Learning Developer | Data Analyst | Python Coder</p>
-      <a href="#projects" class="btn">View My Work</a>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-center">
+      <div class="brand">Digvijay R. Borse</div>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-    <div class="hero-img">
-      <img src="assets/profile.png" alt="Digvijay Portfolio" style="max-width:350px; border-radius:20px;">
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1>Digvijay R. Borse</h1>
+        <h3>Computer Science Engineer</h3>
+        <p>Machine Learning Developer | Python Coder | Data Analyst | Researcher (ML/AI)</p>
+
+        <div id="animatedText" aria-hidden="true"></div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="Digvijay_Resume.pdf" target="_blank" download>Download Resume</a>
+          <a class="btn btn-outline" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-img">
+        <img src="photo11.png" alt="Digvijay R. Borse" />
+      </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
+  <!-- ABOUT -->
+  <section id="about" class="fade-in">
+    <h2>About Me</h2>
+    <p>
+      Motivated and detail-oriented Computer Science student and engineer with strong skills in Python, Machine Learning, Deep Learning, SQL, and data visualization using Power BI.
+      I have authored research papers focused on house price prediction and medical data analysis using machine learning techniques. I enjoy solving real-world problems with data and building reliable ML pipelines end-to-end.
+    </p>
+
+    <div class="highlights" style="margin-top:1.4rem;">
+      <div class="stat"><strong>10+</strong><span style="display:block; font-size:.9rem; color:#cfcfcf;">Projects</span></div>
+      <div class="stat"><strong>2</strong><span style="display:block; font-size:.9rem; color:#cfcfcf;">Research Papers</span></div>
+      <div class="stat"><strong>5+</strong><span style="display:block; font-size:.9rem; color:#cfcfcf;">Certifications</span></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-in">
+    <h2>Skills</h2>
+    <p class="section-sub">Technologies and tools I use frequently</p>
+    <ul class="skills-list">
+      <li>Python</li>
+      <li>Machine Learning</li>
+      <li>Deep Learning</li>
+      <li>Power BI</li>
+      <li>Data Analysis</li>
+      <li>SQL</li>
+      <li>HTML/CSS</li>
+      <li>JavaScript</li>
+      <li>Git / GitHub</li>
+    </ul>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience fade-in">
+    <h2>Experience</h2>
+
+    <div class="card">
+      <strong>Data Science Intern — Skill Field Metro</strong>
+      <div class="meta">Internship — <em>Jan 2025</em></div>
+      <p style="margin-top:.6rem; color:#d3d3d3;">
+        Completed an internship in Data Science where I worked on data preprocessing, exploratory analysis, feature engineering, and building supervised learning models. Gained hands-on experience with Python, pandas, scikit-learn, model evaluation, and basic model deployment principles.
+      </p>
+      <a href="skillfieldmetro_certificate.pdf" target="_blank" rel="noopener" style="margin-top:.7rem; display:inline-block; color:#00f6ff; font-weight:700;">
+        View Certificate (Skill Field Metro)
+      </a>
+    </div>
+  </section>
+
+  <!-- PROJECTS (kept as-is from your original content) -->
+  <section id="projects" class="fade-in">
     <h2>Projects</h2>
-    <div class="projects-grid">
+
+    <div class="projects">
+      <!-- Project 1 -->
       <div class="project-card">
-        <img src="house.png" alt="House Price Prediction">
-        <h3>House Price Prediction</h3>
-        <p>Predicting property prices using ML models like Linear Regression & Random Forest.</p>
+        <img src="python.png" alt="Python Projects">
+        <div class="project-body">
+          <strong>Python Projects</strong>
+          <p>Practice & foundational Python programs.</p>
+          <a class="button" href="https://github.com/digvijay990/python_projects" target="_blank" style="color:#00f6ff; font-weight:600;">View on GitHub</a>
+        </div>
       </div>
-      <div class="project-card">
-        <img src="poultry.png" alt="Poultry Disease Detection">
-        <h3>Poultry Disease Detection</h3>
-        <p>Deep learning model to detect poultry diseases from fecal images.</p>
-      </div>
+
+      <!-- Project 2 -->
       <div class="project-card">
         <img src="blood.png" alt="Blood Group Detection">
-        <h3>Blood Group Detection</h3>
-        <p>Fingerprint-based CNN model with Keras Tuner for hyperparameter optimization.</p>
+        <div class="project-body">
+          <strong>Blood Group Detection</strong>
+          <p>CNN model predicting blood group from fingerprint images.</p>
+          <a class="button" href="#" target="_blank" style="color:#00f6ff; font-weight:600;">Coming Soon</a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <img src="house.png" alt="House Price Prediction">
+        <div class="project-body">
+          <strong>House Price Prediction</strong>
+          <p>XGBoost regression model on real estate dataset.</p>
+          <a class="button" href="#" target="_blank" style="color:#00f6ff; font-weight:600;">Coming Soon</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Certifications Section -->
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="cert-grid">
-      <div class="cert-item">
-        <img src="cert1.png" alt="Certificate 1">
-        <p>Data Science Internship Certificate</p>
-      </div>
-      
-
-  <!-- Dashboards Section -->
-  <section id="dashboards">
-    <h2>Power BI Dashboards</h2>
-    <div class="dashboard-grid">
-      <div class="dashboard-item">
-        <img src="dashboard1.png" alt="Dashboard 1">
-        <p>Airline Revenue Analysis</p>
-      </div>
-      <div class="dashboard-item">
-        <img src="dashboard2.png" alt="Dashboard 2">
-        <p>Sales Insights</p>
-      </div>
-      <div class="dashboard-item">
-        <img src="dashboard3.png" alt="Dashboard 3">
-        <p>Customer Segmentation</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in">
     <h2>Contact</h2>
-    <p style="text-align:center;">Let's connect! Email me at <a href="mailto:digvijay@example.com">digvijay@example.com</a></p>
+    <p class="section-sub" style="text-align:center; margin-bottom:1.2rem;">Get in touch — I'd love to hear about opportunities to collaborate.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <strong>Email</strong>
+        <div><a href="mailto:digvijay.borse22@pccoepune.org">digvijay.borse22@pccoepune.org</a></div>
+      </div>
+
+      <div class="contact-card">
+        <strong>GitHub</strong>
+        <div><a href="https://github.com/digvijay990" target="_blank" rel="noopener">github.com/digvijay990</a></div>
+      </div>
+
+      <div class="contact-card">
+        <strong>LinkedIn</strong>
+        <div><a href="https://www.linkedin.com/in/digvijay-borse-41481b259" target="_blank" rel="noopener">linkedin.com/in/digvijay-borse-41481b259</a></div>
+      </div>
+    </div>
+
+    <!-- Simple contact form (sends via mailto) -->
+    <form id="contactForm" style="max-width:760px;margin:1.4rem auto 0; display:flex; gap:.6rem; flex-wrap:wrap;">
+      <input id="name" placeholder="Your name" required style="flex:1; padding:.7rem; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:#0f0f0f; color:#fff;">
+      <input id="email" placeholder="Your email" type="email" required style="flex:1; padding:.7rem; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:#0f0f0f; color:#fff;">
+      <textarea id="message" placeholder="Message" rows="4" required style="width:100%; padding:.7rem; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:#0f0f0f; color:#fff;"></textarea>
+      <button type="submit" class="btn btn-primary" style="margin-left:auto;">Send Message</button>
+    </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Digvijay R. Borse | All Rights Reserved</p>
+    &copy; 2025 Digvijay R. Borse. All rights reserved.
   </footer>
+
+  <!-- ---------- SCRIPTS ---------- -->
+  <script>
+    // Navbar background toggle on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+      // reveal sections (fade-in)
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < (window.innerHeight * 0.85)) el.classList.add('show');
+      });
+    });
+    // initial check to show elements on load
+    window.dispatchEvent(new Event('scroll'));
+
+    // Typing animation (works like your earlier logic but robust)
+    const titles = [
+      "Machine Learning Developer",
+      "Python Coder",
+      "Data Analyst",
+      "Researcher (ML/AI)",
+      "Deep Learning Enthusiast"
+    ];
+    let ti = 0, tj = 0, deleting = false;
+    const animated = document.getElementById('animatedText');
+    function typeLoop() {
+      const current = titles[ti];
+      if (!deleting) {
+        tj++;
+        animated.textContent = current.substring(0, tj);
+        if (tj === current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 900);
+          return;
+        }
+        setTimeout(typeLoop, 90);
+      } else {
+        tj--;
+        animated.textContent = current.substring(0, tj);
+        if (tj === 0) {
+          deleting = false;
+          ti = (ti + 1) % titles.length;
+          setTimeout(typeLoop, 200);
+          return;
+        }
+        setTimeout(typeLoop, 45);
+      }
+    }
+    // start typing (delay short to allow load)
+    setTimeout(typeLoop, 500);
+
+    // Contact form: use mailto to open user's email client (simple fallback)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+      const subject = encodeURIComponent('Portfolio Contact from ' + (name || email));
+      const body = encodeURIComponent(`Name: ${name}%0AEmail: ${email}%0A%0A${decodeURIComponent(message)}`);
+      // open mail client
+      window.location.href = `mailto:digvijay.borse22@pccoepune.org?subject=${subject}&body=${body}`;
+    });
+
+    // Small accessibility: close focus outlines elegantly
+    document.addEventListener('keyup', (e) => {
+      if (e.key === 'Tab') document.body.classList.add('show-focus');
+    });
+  </script>
 </body>
 </html>
