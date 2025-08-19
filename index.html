@@ -6,399 +6,324 @@
   <title>Digvijay R. Borse | Portfolio</title>
 
   <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
   <style>
-    /* ---------- Reset & Base ---------- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'Inter', sans-serif;
-      background: #0e0e0e;
+    }
+
+    body {
+      background: #0a0a0a;
       color: #fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    a { color: inherit; text-decoration: none; }
-    section { padding: 4rem 1.5rem; max-width: 1200px; margin: 0 auto; }
 
-    /* ---------- NAV ---------- */
-    nav {
+    header {
       position: fixed;
-      inset: 0 0 auto 0;
-      height: 64px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index: 1200;
-      background: rgba(14,14,14,0.35);
-      backdrop-filter: blur(6px);
-      transition: background 300ms ease, box-shadow 300ms ease;
-      padding: 0 2rem;
-    }
-    nav.scrolled {
-      background: rgba(14,14,14,0.95);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.6);
-    }
-    .nav-center {
-      width:100%;
-      max-width:1100px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .brand {
-      font-weight:700;
-      letter-spacing:0.4px;
-      color:#fff;
-    }
-    .nav-center ul {
-      display:flex;
-      gap:1.6rem;
-      list-style:none;
-      align-items:center;
-    }
-    .nav-center ul li a {
-      color:#ddd;
-      font-weight:600;
-      padding:6px 8px;
-      border-radius:6px;
-      transition: color .2s, background .2s;
-    }
-    .nav-center ul li a:hover { color:#00f6ff; background: rgba(0,246,255,0.04); }
-
-    /* ---------- HERO ---------- */
-    #hero {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      height:100vh;
-      padding-top:64px; /* for fixed nav */
-      position:relative;
-      overflow:hidden;
-      background: linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-    }
-    .hero-inner {
-      display:flex;
-      gap:2rem;
-      align-items:center;
-      width:100%;
-      max-width:1200px;
-      padding: 2rem;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10,10,10,0.9);
+      z-index: 1000;
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
     }
 
-    /* left text */
-    .hero-left { flex:1; text-align:right; padding-right:2rem; }
-    .hero-left h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-bottom:0.4rem; }
-    .hero-left h3 { color:#00f6ff; margin-bottom:1rem; font-weight:600; }
-    .hero-left p { color:#d5d5d5; max-width:44rem; line-height:1.6; }
-
-    /* animated tags below */
-    #animatedText {
-      color:#00f6ff;
-      font-weight:700;
-      margin-top:1rem;
-      font-size:1.05rem;
-      height:1.8rem;
-      border-right:2px solid #00f6ff;
-      white-space:nowrap;
-      overflow:hidden;
-      animation: blink 1s infinite;
-      display:inline-block;
-    }
-    @keyframes blink { 0%,100%{ border-color: transparent } 50%{ border-color: #00f6ff } }
-
-    /* hero image column */
-    .hero-img { flex:0 0 420px; display:flex; align-items:center; justify-content:center; }
-    .hero-img img {
-      width:auto;
-      max-width:100%;
-      max-height:72vh;
-      object-fit:contain;
-      border-radius:10px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-      border: 1px solid rgba(255,255,255,0.03);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    header.scrolled {
+      background: rgba(10,10,10,0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
 
-    /* resume button */
-    .cta-row { margin-top:1.25rem; display:flex; gap:1rem; justify-content:flex-end; }
-    .btn {
-      display:inline-block;
-      padding:0.6rem 1rem;
-      border-radius:8px;
-      font-weight:600;
-      cursor:pointer;
-      transition: transform .18s ease, box-shadow .18s ease;
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #00f6ff;
     }
-    .btn-primary {
-      background:#00f6ff;
-      color:#000;
-      box-shadow: 0 8px 30px rgba(0,246,255,0.08);
-    }
-    .btn-outline {
-      border:1px solid rgba(255,255,255,0.06);
-      color:#fff;
-      background:transparent;
-    }
-    .btn-primary:hover { transform: translateY(-3px); }
-    .btn-outline:hover { transform:translateY(-3px); border-color:#00f6ff; color:#00f6ff; }
 
-    /* ---------- SECTIONS ---------- */
-    h2 { font-size:2rem; color:#00f6ff; text-align:left; margin-bottom:1.2rem; }
-    .section-sub { color:#cfcfcf; margin-bottom:1rem; }
-
-    /* About */
-    #about p { color:#d3d3d3; line-height:1.7; max-width:920px; margin:auto; text-align:left; }
-
-    /* Skills */
-    ul.skills-list {
-      display:flex;
-      gap:.8rem;
-      flex-wrap:wrap;
-      list-style:none;
-      padding-left:0;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
     }
-    ul.skills-list li {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:8px;
-      padding:0.45rem 0.9rem;
-      color:#00f6ff;
-      font-weight:600;
-      border: 1px solid rgba(0,246,255,0.06);
-      transition: transform .15s, box-shadow .15s;
-    }
-    ul.skills-list li:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,246,255,0.06); color:#000; background:#00f6ff; }
 
-    /* Highlights */
-    .highlights { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem; }
-    .stat {
-      background:#0f0f0f;
-      border-radius:10px;
-      padding:1rem 1.2rem;
-      min-width:150px;
-      text-align:center;
-      border: 1px solid rgba(255,255,255,0.03);
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    .stat strong { display:block; color:#00f6ff; font-size:1.4rem; }
 
-    /* Experience */
-    .experience .card {
-      background: #1c1c1c;
-      border-radius:12px;
-      padding:1.2rem;
-      border: 1px solid rgba(255,255,255,0.03);
+    nav ul li a:hover {
+      color: #00f6ff;
     }
-    .experience .meta { color:#cfcfcf; font-size:.95rem; margin-top:.5rem; }
 
-    /* Projects / Certificates */
+    section {
+      min-height: 100vh;
+      padding: 6rem 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00f6ff;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 0 3rem;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+    }
+
+    .hero-text p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+
+    .typed {
+      color: #00f6ff;
+      font-weight: 700;
+    }
+
+    .hero img {
+      max-width: 400px;
+      border-radius: 2rem;
+    }
+
     .projects {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap:1.25rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
+
     .project-card {
-      background:#1c1c1c;
-      border-radius:10px;
-      overflow:hidden;
-      transition: transform .28s ease, box-shadow .28s ease;
+      background: #111;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
-    .project-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.6); }
-    .project-card img { width:100%; display:block; }
-    .project-body { padding:1rem; color:#dcdcdc; }
 
-    /* Contact */
-    .contact-grid { display:flex; gap:2rem; flex-wrap:wrap; align-items:center; justify-content:center; }
-    .contact-card {
-      background:#111111; border-radius:10px; padding:1rem 1.2rem; text-align:center; min-width:220px;
-      border: 1px solid rgba(255,255,255,0.03);
+    .project-card:hover {
+      transform: translateY(-8px);
     }
-    .contact-card a { display:block; margin-top:0.5rem; color:#00f6ff; font-weight:600; }
 
-    /* Footer */
-    footer { padding:2rem 1rem; text-align:center; color:#aaa; margin-top:2rem; border-top: 1px solid rgba(255,255,255,0.02); }
-
-    /* ---------- Animations / Responsive ---------- */
-    .fade-in { opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-    .fade-in.show { opacity:1; transform:none; }
-
-    @media (max-width: 880px) {
-      .hero-inner { flex-direction:column-reverse; text-align:center; gap:1.2rem; }
-      .hero-left { text-align:center; padding-right:0; }
-      .hero-img { flex: 0 0 auto; max-width:380px; }
-      .cta-row { justify-content:center; }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
     }
-    @media (max-width: 480px) {
-      nav { padding: 0 1rem; }
-      .nav-center ul { gap:1rem; font-size:.95rem; }
-      h2 { font-size:1.6rem; }
+
+    .project-body {
+      padding: 1rem;
+    }
+
+    .project-body strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #00f6ff;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      border: 1px solid #00f6ff;
+      color: #00f6ff;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .button:hover {
+      background: #00f6ff;
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .section-sub {
+      margin-bottom: 2rem;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="nav-center">
-      <div class="brand">Digvijay R. Borse</div>
+  <!-- HEADER -->
+  <header id="header">
+    <h1>Digvijay R. Borse</h1>
+    <nav>
       <ul>
-        <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#dashboards">Dashboards</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- HERO -->
-  <section id="hero" aria-label="Hero">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <h1>Digvijay R. Borse</h1>
-        <h3>Computer Science Engineer</h3>
-        <p>Machine Learning Developer | Python Coder | Data Analyst | Researcher (ML/AI)</p>
-
-        <div id="animatedText" aria-hidden="true"></div>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="Digvijay_Resume.pdf" target="_blank" download>Download Resume</a>
-          <a class="btn btn-outline" href="#contact">Contact Me</a>
-        </div>
-      </div>
-
-      <div class="hero-img">
-        <img src="photo11.png" alt="Digvijay R. Borse" />
-      </div>
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h2>Hi, I'm Digvijay 👋</h2>
+      <p>I am a <span class="typed"></span></p>
+      <p>Passionate about Machine Learning, Data Science, and creating impactful solutions.</p>
     </div>
+    <img src="me.png" alt="Digvijay">
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="fade-in">
+  <section id="about">
     <h2>About Me</h2>
-    <p>
-      Motivated and detail-oriented Computer Science student and engineer with strong skills in Python, Machine Learning, Deep Learning, SQL, and data visualization using Power BI.
-      I have authored research papers focused on house price prediction and medical data analysis using machine learning techniques. I enjoy solving real-world problems with data and building reliable ML pipelines end-to-end.
-    </p>
-
-    <div class="highlights" style="margin-top:1.4rem;">
-      <div class="stat"><strong>10+</strong><span style="display:block; font-size:.9rem; color:#cfcfcf;">Projects</span></div>
-      <div class="stat"><strong>2</strong><span style="display:block; font-size:.9rem; color:#cfcfcf;">Research Papers</span></div>
-      <div class="stat"><strong>5+</strong><span style="display:block; font-size:.9rem; color:#cfcfcf;">Certifications</span></div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="fade-in">
-    <h2>Skills</h2>
-    <p class="section-sub">Technologies and tools I use frequently</p>
-    <ul class="skills-list">
-      <li>Python</li>
-      <li>Machine Learning</li>
-      <li>Deep Learning</li>
-      <li>Power BI</li>
-      <li>Data Analysis</li>
-      <li>SQL</li>
-      <li>HTML/CSS</li>
-      <li>JavaScript</li>
-      <li>Git / GitHub</li>
-    </ul>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="experience fade-in">
-    <h2>Experience</h2>
-
-    <div class="card">
-      <strong>Data Science Intern — Skill Field Metro</strong>
-      <div class="meta">Internship — <em>Jan 2025</em></div>
-      <p style="margin-top:.6rem; color:#d3d3d3;">
-        Completed an internship in Data Science where I worked on data preprocessing, exploratory analysis, feature engineering, and building supervised learning models. Gained hands-on experience with Python, pandas, scikit-learn, model evaluation, and basic model deployment principles.
-      </p>
-      <a href="skillfieldmetro_certificate.pdf" target="_blank" rel="noopener" style="margin-top:.7rem; display:inline-block; color:#00f6ff; font-weight:700;">
-        View Certificate (Skill Field Metro)
-      </a>
-    </div>
+    <p>I’m a motivated Computer Science Engineer skilled in Python, SQL, Machine Learning, and Data Visualization. Experienced in building ML models, dashboards, and deploying AI-powered apps.</p>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="fade-in">
+  <section id="projects">
     <h2>Projects</h2>
-
     <div class="projects">
-      <!-- Project 1 -->
       <div class="project-card">
-        <img src="python.png" alt="Python Projects">
-        <div class="project-body">
-          <strong>Python Projects</strong>
-          <p>Practice & foundational Python programs.</p>
-          <a class="button" href="https://github.com/digvijay990/python_projects" target="_blank" style="color:#00f6ff; font-weight:600;">View on GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project-card">
-        <img src="blood.png" alt="Blood Group Detection">
-        <div class="project-body">
-          <strong>Blood Group Detection</strong>
-          <p>CNN model predicting blood group from fingerprint images.</p>
-          <a class="button" href="#" target="_blank" style="color:#00f6ff; font-weight:600;">Coming Soon</a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project-card">
-        <img src="house.png" alt="House Price Prediction">
+        <img src="house_price.png" alt="House Price Prediction">
         <div class="project-body">
           <strong>House Price Prediction</strong>
-          <p>XGBoost regression model on real estate dataset.</p>
-          <a class="button" href="#" target="_blank" style="color:#00f6ff; font-weight:600;">Coming Soon</a>
+          <p>ML models predicting house prices using Random Forest & Linear Regression.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="poultry_disease.png" alt="Poultry Disease Detection">
+        <div class="project-body">
+          <strong>Poultry Disease Detection</strong>
+          <p>Trained CNN models for detecting poultry diseases via image classification.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATES & DASHBOARDS -->
-  <section id="certificates" class="fade-in">
-    <h2>Certificates & Dashboards</h2>
-    <p class="section-sub">Some of my certifications and Power BI dashboards</p>
-
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <p class="section-sub">Some of my certifications</p>
     <div class="projects">
-      <!-- Certificate 1 -->
       <div class="project-card">
         <img src="skillfieldmetro_certificate.png" alt="Skill Field Metro Certificate">
         <div class="project-body">
           <strong>Data Science Internship Certificate</strong>
           <p>Certified completion of Data Science Internship at Skill Field Metro.</p>
-          <a class="button" href="skillfieldmetro_certificate.pdf" target="_blank" style="color:#00f6ff; font-weight:600;">View Certificate</a>
         </div>
       </div>
-
-      <!-- Certificate 2 -->
       <div class="project-card">
         <img src="ml_certificate.png" alt="Machine Learning Certificate">
         <div class="project-body">
           <strong>Machine Learning Certification</strong>
           <p>Credential for completing a Machine Learning specialization.</p>
-          <a class="button" href="ml_certificate.pdf" target="_blank" style="color:#00f6ff; font-weight:600;">View Certificate</a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Dashboard -->
+  <!-- POWER BI DASHBOARDS -->
+  <section id="dashboards">
+    <h2>Power BI Dashboards</h2>
+    <p class="section-sub">Data visualization projects built with Power BI</p>
+    <div class="projects">
+      <!-- Dashboard 1 -->
       <div class="project-card">
-        <img src="powerbi_dashboard.png" alt="Power BI Dashboard">
+        <img src="assets/powerbi/dashboard1.png" alt="Dashboard 1">
         <div class="project-body">
           <strong>Airline Revenue Analysis</strong>
-          <p>Power BI dashboard analyzing airline revenue trends.</p>
-          <a class="button" href="powerbi_dashboard.png" target="_blank" style="color:#00f6ff; font-weight:600;">View Full Dashboard</a>
+          <p>Dashboard analyzing revenue trends of airlines.</p>
+        </div>
+      </div>
+      <!-- Dashboard 2 -->
+      <div class="project-card">
+        <img src="assets/powerbi/dashboard2.png" alt="Dashboard 2">
+        <div class="project-body">
+          <strong>Sales Insights</strong>
+          <p>Visualization of product-wise and region-wise sales insights.</p>
+        </div>
+      </div>
+      <!-- Dashboard 3 -->
+      <div class="project-card">
+        <img src="assets/powerbi/dashboard3.png" alt="Dashboard 3">
+        <div class="project-body">
+          <strong>Customer Segmentation</strong>
+          <p>Dashboard showing segmentation of customers based on purchases.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="fade-in">
+  <section id="contact">
     <h2>Contact</h2>
-    <p class="section-sub" style="text-align:center; margin-bottom:1.2rem;">Get in
+    <p>Email: <a href="mailto:digvijay@example.com" style="color:#00f6ff;">digvijay@example.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/digvijay" style="color:#00f6ff;" target="_blank">linkedin.com/in/digvijay</a></p>
+    <p>GitHub: <a href="https://github.com/digvijay" style="color:#00f6ff;" target="_blank">github.com/digvijay</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Digvijay R. Borse. All rights reserved.</p>
+  </footer>
+
+  <!-- Script for typing effect -->
+  <script>
+    const typedText = ["Machine Learning Developer", "Data Analyst", "Python Coder", "Computer Science Engineer"];
+    let i = 0;
+    let j = 0;
+    let currentText = "";
+    let isDeleting = false;
+
+    function type() {
+      currentText = typedText[i];
+      document.querySelector(".typed").textContent =
+        isDeleting ? currentText.substring(0, j--) : currentText.substring(0, j++);
+
+      if (!isDeleting && j === currentText.length + 1) {
+        isDeleting = true;
+        setTimeout(type, 1500);
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % typedText.length;
+        setTimeout(type, 500);
+      } else {
+        setTimeout(type, isDeleting ? 80 : 120);
+      }
+    }
+    type();
+
+    window.addEventListener("scroll", () => {
+      const header = document.getElementById("header");
+      if (window.scrollY > 50) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    });
+  </script>
+</body>
+</html>
