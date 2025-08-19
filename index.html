@@ -1,164 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digvijay R. Borse - Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digvijay Borse | Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* ===== Global Styles ===== */
+    * {
       margin: 0;
       padding: 0;
-      background: #0a0a0a;
-      color: #f5f5f5;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
-    header {
-      background: #111;
-      padding: 20px;
-      text-align: center;
+
+    body {
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-      color: #00f6ff;
+
+    h1, h2 {
+      color: #222;
     }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      margin: 0 15px;
+
+    a {
+      color: #0077b6;
       text-decoration: none;
-      color: #f5f5f5;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #fff;
       font-weight: bold;
+      transition: color 0.3s;
     }
-    nav a:hover {
-      color: #00f6ff;
+
+    nav ul li a:hover {
+      color: #00b4d8;
     }
+
+    /* ===== Hero Section ===== */
+    #hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, #0077b6, #00b4d8);
+      color: #fff;
+    }
+
+    #hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #hero span {
+      color: #ffe66d;
+    }
+
+    /* ===== Sections ===== */
     section {
-      padding: 40px 20px;
+      padding: 3rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
+
     section h2 {
-      color: #00f6ff;
-      margin-bottom: 10px;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      border-bottom: 3px solid #0077b6;
+      display: inline-block;
+      padding-bottom: 0.3rem;
     }
+
     .section-sub {
-      color: #aaa;
-      margin-bottom: 25px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #555;
     }
+
+    /* ===== Projects, Dashboards, Certificates ===== */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 1.5rem;
     }
+
     .project-card {
-      background: #1a1a1a;
+      background: #fff;
       border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.2s ease;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
+
     .project-card:hover {
-      transform: scale(1.03);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     }
+
     .project-card img {
       width: 100%;
-      display: block;
+      height: 180px;
+      object-fit: cover;
     }
+
     .project-body {
-      padding: 15px;
+      padding: 1rem;
     }
+
     .project-body strong {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 0.5rem;
       font-size: 1.1rem;
-      color: #fff;
+      color: #0077b6;
     }
-    .project-body p {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 8px;
-    }
-    footer {
+
+    /* ===== Contact ===== */
+    #contact p {
+      margin: 0.5rem 0;
       text-align: center;
-      padding: 20px;
-      background: #111;
-      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Digvijay R. Borse</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#dashboard">Dashboards</a> <!-- 🔹 Added link -->
-      <a href="#contact">Contact</a>
-    </nav>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#dashboard">Dashboards</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header id="hero">
+    <h1>Hi, I'm <span>Digvijay R. Borse</span></h1>
+    <p>Computer Science Engineer | Machine Learning Developer | Data Analyst</p>
   </header>
 
-  <!-- Existing Sections (About, Projects, etc.) -->
+  <!-- ABOUT SECTION -->
   <section id="about">
     <h2>About Me</h2>
-    <p class="section-sub">Computer Science Engineer | Machine Learning Developer | Data Analyst</p>
-    <p>I am a motivated and detail-oriented Computer Science student with strong skills in Python, SQL, machine learning, and data visualization using Power BI. I have authored research papers on house price prediction and medical data analysis using ML. Passionate about applying data science to solve real-world problems.</p>
+    <p>
+      I am a motivated and detail-oriented Computer Science Engineer with strong skills in Python, SQL, Machine Learning, 
+      and Data Visualization using Power BI. Passionate about applying data science to real-world problems and creating impactful solutions.
+    </p>
   </section>
 
+  <!-- PROJECTS SECTION -->
   <section id="projects">
     <h2>Projects</h2>
-    <p class="section-sub">Some of my key work in machine learning and data science.</p>
     <div class="projects">
       <div class="project-card">
-        <img src="project1.png" alt="House Price Prediction">
+        <img src="project1.png" alt="Project 1">
         <div class="project-body">
           <strong>House Price Prediction</strong>
-          <p>Predicting property prices using Linear Regression and Random Forest.</p>
+          <p>Predicting real estate prices using ML models like Linear Regression and Random Forest.</p>
         </div>
       </div>
+
       <div class="project-card">
-        <img src="project2.png" alt="Poultry Disease Detection">
+        <img src="project2.png" alt="Project 2">
         <div class="project-body">
           <strong>Poultry Disease Detection</strong>
-          <p>CNN-based image classification to detect poultry diseases from feces images.</p>
+          <p>Deep learning model for detecting poultry diseases from feces images.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 🔹 NEW SECTION: Power BI Dashboards (added) -->
+  <!-- DASHBOARDS SECTION -->
   <section id="dashboard">
     <h2>Power BI Dashboards</h2>
-    <p class="section-sub">Snapshots of my dashboards (click to view full PDF if available).</p>
+    <p class="section-sub">Snapshots of my dashboards (click to view PDF if available).</p>
+
     <div class="projects">
       <div class="project-card">
         <img src="dashboard1.png" alt="Revenue Analysis Dashboard">
         <div class="project-body">
           <strong>Revenue Analysis</strong>
           <p>Airline revenue analysis using Power BI.</p>
-          <a href="dashboard1.pdf" target="_blank" style="color:#00f6ff;font-weight:600;">View PDF</a>
+          <a href="dashboard1.pdf" target="_blank">View PDF</a>
         </div>
       </div>
+
       <div class="project-card">
         <img src="dashboard2.png" alt="Customer Insights Dashboard">
         <div class="project-body">
           <strong>Customer Insights</strong>
           <p>Customer behavior patterns and sales trends.</p>
-          <a href="dashboard2.pdf" target="_blank" style="color:#00f6ff;font-weight:600;">View PDF</a>
+          <a href="dashboard2.pdf" target="_blank">View PDF</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: digvijay@example.com</p>
-    <p>LinkedIn: <a href="#" style="color:#00f6ff;">linkedin.com/in/digvijay</a></p>
+  <!-- CERTIFICATES SECTION -->
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="certificate1.png" alt="Internship Certificate">
+        <div class="project-body">
+          <strong>Data Science Internship</strong>
+          <p>Internship certificate from Skill Field Metro in Data Science.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="certificate2.png" alt="Deep Learning Certificate">
+        <div class="project-body">
+          <strong>Deep Learning Specialization</strong>
+          <p>Certificate showcasing deep learning skills and projects.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>© 2025 Digvijay R. Borse | Portfolio</p>
-  </footer>
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:digvijay@example.com">digvijay@example.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/digvijayborse" target="_blank">linkedin.com/in/digvijayborse</a></p>
+    <p>GitHub: <a href="https://github.com/digvijayborse" target="_blank">github.com/digvijayborse</a></p>
+  </section>
+
 </body>
 </html>
